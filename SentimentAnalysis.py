@@ -8,7 +8,7 @@ st.markdown(
 <style>
 body {
     color: #fff;
-    background-image: url(https://source.unsplash.com/weekly?technology);
+    background-color: #00ffff; 
     background-size: cover;
 }
 .custom-font {
@@ -62,3 +62,13 @@ if input_text:
     st.write(f"Positive Reviews: {positive_count}", className="custom-font")
     st.write(f"Negative Reviews: {negative_count}", className="custom-font")
     st.write(f"Average Confidence: {total_confidence/total_reviews:.2f}", className="custom-font")
+
+    # Sentiment summary
+    if positive_count > negative_count:
+        summary = "Overall, the sentiment is positive."
+    elif negative_count > positive_count:
+        summary = "Overall, the sentiment is negative."
+    else:
+        summary = "Overall, the sentiment is neutral."
+
+    st.write(summary, className="custom-font")
